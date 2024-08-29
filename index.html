@@ -14,13 +14,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .about-container {
-            max-width: 90%;
+            width: 90%;
+            max-width: 600px;
             padding: 20px;
             background: rgba(40, 40, 40, 0.9);
             border-radius: 15px;
@@ -30,20 +30,20 @@
         }
 
         .about-title {
-            font-size: 32px;
+            font-size: 28px;
             margin-bottom: 15px;
             color: #1e90ff;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: fadeIn 1.5s ease-in-out;
             transition: color 0.5s ease;
         }
 
         .about-text {
-            font-size: 18px;
+            font-size: 16px;
             text-align: justify;
             margin-bottom: 20px;
-            line-height: 1.8;
+            line-height: 1.5;
             animation: slideUp 1s ease-in-out;
         }
 
@@ -54,12 +54,12 @@
         }
 
         .skills-section {
-            margin-top: 30px;
+            margin-top: 20px;
             animation: slideUp 1s ease-in-out;
         }
 
         .skills-title {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 10px;
             color: #1e90ff;
             border-bottom: 2px solid #1e90ff;
@@ -72,10 +72,11 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+            text-align: left;
         }
 
         .skill-list li {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
@@ -92,8 +93,8 @@
 
         .footer-note {
             text-align: center;
-            margin-top: 20px;
-            font-size: 16px;
+            margin-top: 15px;
+            font-size: 14px;
             color: #ddd;
             animation: slideUp 1s ease-in-out;
         }
@@ -140,7 +141,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             transition: background 0.3s ease;
         }
@@ -159,29 +160,29 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .about-title {
-                font-size: 28px;
+                font-size: 24px;
             }
 
             .about-text {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .skills-title {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .skill-list li {
-                font-size: 16px;
+                font-size: 14px;
             }
 
             .footer-note {
-                font-size: 14px;
+                font-size: 12px;
             }
 
             .dark-mode-toggle {
-                font-size: 14px;
+                font-size: 12px;
             }
         }
     </style>
