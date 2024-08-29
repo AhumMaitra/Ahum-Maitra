@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #e09, #d0e);
+            background-color: #121212;
             margin: 0;
             padding: 0;
             color: #fff;
@@ -17,17 +17,19 @@
             height: 100vh;
             overflow: hidden;
             perspective: 1000px;
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .about-container {
-            max-width: 900px;
+            max-width: 90%;
             padding: 30px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(40, 40, 40, 0.9);
             border-radius: 15px;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
             transform-style: preserve-3d;
             transform: rotateY(15deg);
             animation: rotate 10s infinite linear;
+            transition: background 0.5s ease, transform 0.5s ease;
         }
 
         @keyframes rotate {
@@ -38,13 +40,14 @@
 
         .about-title {
             text-align: center;
-            font-size: 42px;
+            font-size: 36px;
             margin-bottom: 20px;
             color: #1e90ff;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff;
             animation: glow 2s ease-in-out infinite alternate;
+            transition: color 0.5s ease;
         }
 
         @keyframes glow {
@@ -53,22 +56,25 @@
         }
 
         .about-text {
-            font-size: 20px;
+            font-size: 18px;
             text-align: justify;
             margin-bottom: 20px;
             line-height: 1.8;
             transform: translateZ(50px);
+            transition: transform 0.5s ease;
         }
 
         .highlight {
             color: #ff4500;
             font-weight: bold;
             text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
+            transition: color 0.5s ease;
         }
 
         .skills-section {
             margin-top: 40px;
             transform: translateZ(30px);
+            transition: transform 0.5s ease;
         }
 
         .skills-title {
@@ -78,6 +84,7 @@
             border-bottom: 2px solid #1e90ff;
             display: inline-block;
             padding-bottom: 5px;
+            transition: border-color 0.5s ease, color 0.5s ease;
         }
 
         .skill-list {
@@ -87,11 +94,12 @@
         }
 
         .skill-list li {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 15px;
             position: relative;
             padding-left: 20px;
             transform: translateZ(30px);
+            transition: transform 0.5s ease;
         }
 
         .skill-list li::before {
@@ -100,15 +108,17 @@
             left: 0;
             color: #ff4500;
             text-shadow: 0 0 5px #ff4500;
+            transition: color 0.5s ease;
         }
 
         .footer-note {
             text-align: center;
             margin-top: 30px;
-            font-size: 18px;
+            font-size: 16px;
             color: #ddd;
             text-shadow: 0 0 5px #fff;
             animation: moveText 15s linear infinite;
+            transition: color 0.5s ease;
         }
 
         @keyframes moveText {
@@ -125,18 +135,100 @@
             animation: none;
             text-shadow: 0 0 30px #ff4500, 0 0 60px #ff4500, 0 0 90px #ff4500;
         }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.dark-mode .about-container {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        body.dark-mode .about-title {
+            color: #333;
+            text-shadow: none;
+        }
+
+        body.dark-mode .highlight {
+            color: #007acc;
+            text-shadow: none;
+        }
+
+        body.dark-mode .skills-title {
+            color: #333;
+            border-color: #007acc;
+        }
+
+        body.dark-mode .skill-list li::before {
+            color: #007acc;
+        }
+
+        body.dark-mode .footer-note {
+            color: #555;
+            text-shadow: none;
+        }
+
+        .dark-mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            background: #ff4500;
+        }
+
+        @media (max-width: 768px) {
+            .about-title {
+                font-size: 28px;
+            }
+
+            .about-text {
+                font-size: 16px;
+            }
+
+            .skills-title {
+                font-size: 22px;
+            }
+
+            .skill-list li {
+                font-size: 16px;
+            }
+
+            .footer-note {
+                font-size: 14px;
+            }
+
+            .dark-mode-toggle {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="about-container">
         <h1 class="about-title">About Ahum Maitra</h1>
         <p class="about-text">
-            Hi, I'm <span class="highlight">Ahum Maitra</span>, a young tech enthusiast with extensive knowledge in English, computer science, coding, editing, designing, and artificial intelligence. My journey into the world of technology began at the age of six when I received my first laptop. From that moment on, I was hooked, and soon I was creating video edits using mobile editors.
+            Hello, I'm <span class="highlight">Ahum Maitra</span>, a passionate young tech enthusiast who has been diving deep into the world of technology from an early age. At just six years old, I received my first laptop, which sparked a journey of exploration and learning. From video editing to web development, I've been experimenting with various tools and platforms, always eager to discover new ways to express my creativity.
         </p>
         <p class="about-text">
-            I run a YouTube channel called <span class="highlight">"Ahum Maitra"</span>, where I share my knowledge of English with others. My passion for technology doesn't stop there—I have built multiple websites, including an English blog, a course website, a computer education website, and a personal website. My ultimate dream is to become an AI Engineer, and I'm constantly learning and growing in this field.
+            Over the years, I've built a solid foundation in English, computer science, coding, editing, designing, and artificial intelligence. My YouTube channel, <span class="highlight">"Ahum Maitra"</span>, serves as a platform where I share my knowledge and help others improve their English skills. I also take pride in the multiple websites I've developed, each serving a unique purpose—from educational blogs to personal portfolios.
         </p>
-
+        <p class="about-text">
+            My love for technology extends beyond just learning—I am constantly applying my skills to create innovative solutions and share them with the world. My dream is to become an AI Engineer, and I am committed to achieving this by continually expanding my knowledge and honing my skills. Whether it's coding, video editing, or website design, I'm always up for a challenge and ready to take on the next big project.
+        </p>
         <div class="skills-section">
             <h2 class="skills-title">My Skills</h2>
             <ul class="skill-list">
@@ -144,24 +236,10 @@
                 <li>Experienced in video editing and design</li>
                 <li>Skilled in web development and coding</li>
                 <li>Passionate about artificial intelligence</li>
-                <li>YouTube content creator</li>
+                <li>YouTube content creator and educator</li>
+                <li>Innovative website designer and builder</li>
             </ul>
         </div>
-
         <p class="footer-note">
-            "The journey of learning never ends."
-        </p>
-    </div>
-
-    <script>
-        // JavaScript to enhance interactivity
-        document.querySelector('.about-container').addEventListener('mouseover', function() {
-            this.style.transform = 'rotateY(0deg) scale(1.05)';
-        });
-
-        document.querySelector('.about-container').addEventListener('mouseout', function() {
-            this.style.transform = 'rotateY(15deg) scale(1)';
-        });
-    </script>
-</body>
-</html>
+            "The journey of learning never ends. With every step, I grow closer to my dreams."
+       
