@@ -16,43 +16,27 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            perspective: 1000px;
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
         .about-container {
             max-width: 90%;
-            padding: 30px;
+            padding: 20px;
             background: rgba(40, 40, 40, 0.9);
             border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-            transform-style: preserve-3d;
-            transform: rotateY(15deg);
-            animation: rotate 10s infinite linear;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
             transition: background 0.5s ease, transform 0.5s ease;
         }
 
-        @keyframes rotate {
-            0% { transform: rotateY(15deg); }
-            50% { transform: rotateY(-15deg); }
-            100% { transform: rotateY(15deg); }
-        }
-
         .about-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 15px;
             color: #1e90ff;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff;
-            animation: glow 2s ease-in-out infinite alternate;
+            animation: fadeIn 1.5s ease-in-out;
             transition: color 0.5s ease;
-        }
-
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff; }
-            to { text-shadow: 0 0 20px #1e90ff, 0 0 40px #1e90ff, 0 0 60px #1e90ff; }
         }
 
         .about-text {
@@ -60,26 +44,23 @@
             text-align: justify;
             margin-bottom: 20px;
             line-height: 1.8;
-            transform: translateZ(50px);
-            transition: transform 0.5s ease;
+            animation: slideUp 1s ease-in-out;
         }
 
         .highlight {
             color: #ff4500;
             font-weight: bold;
-            text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
             transition: color 0.5s ease;
         }
 
         .skills-section {
-            margin-top: 40px;
-            transform: translateZ(30px);
-            transition: transform 0.5s ease;
+            margin-top: 30px;
+            animation: slideUp 1s ease-in-out;
         }
 
         .skills-title {
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 10px;
             color: #1e90ff;
             border-bottom: 2px solid #1e90ff;
             display: inline-block;
@@ -95,11 +76,10 @@
 
         .skill-list li {
             font-size: 18px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             position: relative;
             padding-left: 20px;
-            transform: translateZ(30px);
-            transition: transform 0.5s ease;
+            transition: color 0.5s ease;
         }
 
         .skill-list li::before {
@@ -107,33 +87,15 @@
             position: absolute;
             left: 0;
             color: #ff4500;
-            text-shadow: 0 0 5px #ff4500;
             transition: color 0.5s ease;
         }
 
         .footer-note {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
             font-size: 16px;
             color: #ddd;
-            text-shadow: 0 0 5px #fff;
-            animation: moveText 15s linear infinite;
-            transition: color 0.5s ease;
-        }
-
-        @keyframes moveText {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-        
-        /* Hover effects */
-        .about-container:hover {
-            transform: rotateY(0deg);
-        }
-
-        .about-title:hover {
-            animation: none;
-            text-shadow: 0 0 30px #ff4500, 0 0 60px #ff4500, 0 0 90px #ff4500;
+            animation: slideUp 1s ease-in-out;
         }
 
         /* Dark mode styles */
@@ -144,17 +106,15 @@
 
         body.dark-mode .about-container {
             background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
 
         body.dark-mode .about-title {
             color: #333;
-            text-shadow: none;
         }
 
         body.dark-mode .highlight {
             color: #007acc;
-            text-shadow: none;
         }
 
         body.dark-mode .skills-title {
@@ -168,7 +128,6 @@
 
         body.dark-mode .footer-note {
             color: #555;
-            text-shadow: none;
         }
 
         .dark-mode-toggle {
@@ -188,6 +147,16 @@
 
         .dark-mode-toggle:hover {
             background: #ff4500;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -242,4 +211,15 @@
         </div>
         <p class="footer-note">
             "The journey of learning never ends. With every step, I grow closer to my dreams."
-       
+        </p>
+    </div>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
