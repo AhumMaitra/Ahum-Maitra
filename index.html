@@ -7,49 +7,73 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
+            background: linear-gradient(135deg, #e09, #d0e);
             margin: 0;
             padding: 0;
-            color: #333;
-            line-height: 1.6;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
         }
 
         .about-container {
             max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transform-style: preserve-3d;
+            transform: rotateY(15deg);
+            animation: rotate 10s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotateY(15deg); }
+            50% { transform: rotateY(-15deg); }
+            100% { transform: rotateY(15deg); }
         }
 
         .about-title {
             text-align: center;
-            font-size: 36px;
+            font-size: 42px;
             margin-bottom: 20px;
             color: #1e90ff;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #1e90ff, 0 0 20px #1e90ff, 0 0 30px #1e90ff; }
+            to { text-shadow: 0 0 20px #1e90ff, 0 0 40px #1e90ff, 0 0 60px #1e90ff; }
         }
 
         .about-text {
-            font-size: 18px;
+            font-size: 20px;
             text-align: justify;
             margin-bottom: 20px;
+            line-height: 1.8;
+            transform: translateZ(50px);
         }
 
         .highlight {
             color: #ff4500;
             font-weight: bold;
+            text-shadow: 0 0 10px #ff4500, 0 0 20px #ff4500;
         }
 
         .skills-section {
-            margin-top: 30px;
+            margin-top: 40px;
+            transform: translateZ(30px);
         }
 
         .skills-title {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #1e90ff;
             border-bottom: 2px solid #1e90ff;
             display: inline-block;
@@ -63,15 +87,43 @@
         }
 
         .skill-list li {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+            transform: translateZ(30px);
+        }
+
+        .skill-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: #ff4500;
+            text-shadow: 0 0 5px #ff4500;
         }
 
         .footer-note {
             text-align: center;
             margin-top: 30px;
-            font-size: 16px;
-            color: #666;
+            font-size: 18px;
+            color: #ddd;
+            text-shadow: 0 0 5px #fff;
+            animation: moveText 15s linear infinite;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Hover effects */
+        .about-container:hover {
+            transform: rotateY(0deg);
+        }
+
+        .about-title:hover {
+            animation: none;
+            text-shadow: 0 0 30px #ff4500, 0 0 60px #ff4500, 0 0 90px #ff4500;
         }
     </style>
 </head>
@@ -100,5 +152,16 @@
             "The journey of learning never ends."
         </p>
     </div>
+
+    <script>
+        // JavaScript to enhance interactivity
+        document.querySelector('.about-container').addEventListener('mouseover', function() {
+            this.style.transform = 'rotateY(0deg) scale(1.05)';
+        });
+
+        document.querySelector('.about-container').addEventListener('mouseout', function() {
+            this.style.transform = 'rotateY(15deg) scale(1)';
+        });
+    </script>
 </body>
 </html>
